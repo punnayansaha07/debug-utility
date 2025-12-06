@@ -1,6 +1,6 @@
-# debug-utility
+# debug-better
 
-[![npm version](https://img.shields.io/npm/v/debug-utility.svg)](https://www.npmjs.com/package/debug-utility)
+[![npm version](https://img.shields.io/npm/v/debug-better.svg)](https://www.npmjs.com/package/debug-better)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0.0-green.svg)](https://nodejs.org/)
 
@@ -19,7 +19,7 @@ A modern, TypeScript-based debugging utility with advanced filtering capabilitie
 ## Installation
 
 ```bash
-npm install debug-utility
+npm install debug-better
 ```
 
 ## Quick Start
@@ -27,7 +27,7 @@ npm install debug-utility
 ### Basic Usage
 
 ```typescript
-import debug from 'debug-utility';
+import debug from 'debug-better';
 
 const log = debug('app:server');
 
@@ -57,7 +57,7 @@ localStorage.setItem('debug', 'app:*');
 Full type safety and IntelliSense:
 
 ```typescript
-import debug, { Debugger, FilterOptions } from 'debug-utility';
+import debug, { Debugger, FilterOptions } from 'debug-better';
 
 const log: Debugger = debug('my-app');
 
@@ -73,7 +73,7 @@ const filterOpts: FilterOptions = {
 #### Pattern-Based Filtering
 
 ```typescript
-import debug from 'debug-utility';
+import debug from 'debug-better';
 
 // Set global filter
 debug.setGlobalFilter({
@@ -91,7 +91,7 @@ verboseLog('This will be hidden');
 #### Regex Filtering
 
 ```typescript
-import debug from 'debug-utility';
+import debug from 'debug-better';
 
 debug.setGlobalFilter({
   patterns: [
@@ -104,7 +104,7 @@ debug.setGlobalFilter({
 #### Custom Predicate Filters
 
 ```typescript
-import debug from 'debug-utility';
+import debug from 'debug-better';
 
 debug.setGlobalFilter({
   predicates: [
@@ -125,7 +125,7 @@ debug.setGlobalFilter({
 #### Instance-Specific Filtering
 
 ```typescript
-import debug from 'debug-utility';
+import debug from 'debug-better';
 
 const log = debug('app:main', {
   filter: {
@@ -148,7 +148,7 @@ log({ priority: 'low' }, 'Regular message');     // Hidden
 Attach contextual data to debugger instances:
 
 ```typescript
-import debug from 'debug-utility';
+import debug from 'debug-better';
 
 const log = debug('api:user', {
   metadata: {
@@ -166,7 +166,7 @@ console.log(log.getMetadata('service')); // 'user-service'
 ### 4. Custom Formatters
 
 ```typescript
-import debug from 'debug-utility';
+import debug from 'debug-better';
 
 // Add custom formatter
 debug.formatters.j = (v: any) => {
@@ -182,7 +182,7 @@ log('Config: %j', { port: 3000, host: 'localhost' });
 Create sub-namespaces:
 
 ```typescript
-import debug from 'debug-utility';
+import debug from 'debug-better';
 
 const app = debug('app');
 const server = app.extend('server');
@@ -196,7 +196,7 @@ db('Connected to database');     // app:db
 ### 6. Custom Options
 
 ```typescript
-import debug from 'debug-utility';
+import debug from 'debug-better';
 
 const log = debug('app', {
   useColors: true,
@@ -289,7 +289,7 @@ In browser environments, you can:
 ### Express Server
 
 ```typescript
-import debug from 'debug-utility';
+import debug from 'debug-better';
 import express from 'express';
 
 const app = express();
@@ -321,7 +321,7 @@ app.listen(PORT, () => {
 ### Microservice with Filtering
 
 ```typescript
-import debug from 'debug-utility';
+import debug from 'debug-better';
 
 // Only log errors and warnings in production
 if (process.env.NODE_ENV === 'production') {
@@ -344,7 +344,7 @@ errorLog('Critical error occurred!'); // Always shown
 
 ## Migration from `debug`
 
-`debug-utility` is designed to be a drop-in replacement for the `debug` package:
+`debug-better` is designed to be a drop-in replacement for the `debug` package:
 
 ```typescript
 // Before
@@ -352,7 +352,7 @@ const debug = require('debug');
 const log = debug('app');
 
 // After
-import debug from 'debug-utility';
+import debug from 'debug-better';
 const log = debug('app');
 ```
 
@@ -360,7 +360,7 @@ All existing functionality is preserved, with additional features available when
 
 ## Performance
 
-`debug-utility` is designed with performance in mind:
+`debug-better` is designed with performance in mind:
 
 - Disabled debuggers have near-zero overhead
 - Filtering is evaluated lazily
