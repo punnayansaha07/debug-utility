@@ -1,0 +1,11 @@
+.npmignore
+.gitignore
+.eslintrc.json
+.prettierrc.json
+tsconfig.json
+src/
+examples/
+*.test.ts
+*.spec.ts
+.vscode/
+.idea/
